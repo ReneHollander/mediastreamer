@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+    web:
+        build:
+            context: ./
+            dockerfile: ./Dockerfile.web
+        ports:
+            - "1935:1935"
+        volumes:
+            - ${PWD}/config.php:/var/www/config.php
+        links:
+            - php
+    php:
+        build:
+            context: ./
+            dockerfile: ./Dockerfile.php
+        volumes:
+            - ${PWD}/config.php:/var/www/config.php

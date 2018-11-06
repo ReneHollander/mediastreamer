@@ -1,0 +1,6 @@
+FROM tiangolo/nginx-rtmp
+
+RUN rm -Rf /var/www/*
+
+COPY rtmp_auth.php /var/www/rtmp_auth.php
+COPY nginx.conf /etc/nginx/nginx.conf
